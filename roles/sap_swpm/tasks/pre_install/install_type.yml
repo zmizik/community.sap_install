@@ -4,7 +4,7 @@
   set_fact:
     sap_swpm_generic: 'true'
   when: 
-    - "'Webdispatcher' in sap_swpm_product_catalog_id"
+    - "'GENERIC' in sap_swpm_product_catalog_id"
 # todo: add items for generic SAP products
 
 ################

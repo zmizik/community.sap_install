@@ -240,3 +240,30 @@ nwUsers.sidAdmUID = {{ sap_swpm_sidadm_uid }}
 NW_System.installSAPHostAgent = {{ sap_swpm_install_saphostagent | lower }}
 NW_CI_Instance_ABAP_Reports.executeReportsForDepooling = false
 {% endif %}
+
+######
+# diagnostic_agent
+######
+{% if 'diagnostic_agent' in sap_swpm_inifile_list %}
+DiagnosticsAgent.InstanceNumber = {{ sap_swpm_daa_instance_nr }}
+DiagnosticsAgent.LogicalHostName = {{ sap_swpm_daa_virtual_host }}
+DiagnosticsAgent.SAPJVMVersion = {{ sap_swpm_daa_jvm_version }}
+DiagnosticsAgent.SID = {{ sap_swpm_daa_sid }}
+DiagnosticsAgent.SolMan.Connection = {{ sap_swpm_daa_solman_connect }}
+DiagnosticsAgent.installSAPHostAgent = {{ sap_swpm_daa_hostagent_install | lower }}
+DiagnosticsAgent.SolMan.HostName = {{ sap_swpm_daa_solman_hostname }}
+DiagnosticsAgent.SolMan.PortNumber = {{ sap_swpm_daa_solman_port }}
+DiagnosticsAgent.SolMan.UseSSL = {{ sap_swpm_daa_solman_use_ssl | lower }}
+DiagnosticsAgent.SolMan.UserName = {{ sap_swpm_daa_solman_username }}
+archives.downloadBasket = {{ sap_swpm_daa_basket }}
+{% endif %}
+
+######
+# uninstall
+######
+{% if 'uninstall' in sap_swpm_inifile_list %}
+NW_System_Uninstall.completeSystem = {{ sap_swpm_uninstall_complete_system }}
+NW_System_Uninstall.uninstallHostAgent = {{ sap_swpm_uninstall_hostagent }}
+NW_System_Uninstall.removeUsers = {{ sap_swpm_uninstall_removeusers }}
+NW_readProfileDir.profileDir = /usr/sap/{{ sap_swpm_sid }}/SYS/profile
+{% endif %}
